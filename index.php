@@ -1,76 +1,44 @@
 <?php
+require 'Animal.php';
+require 'Cat.php';
+require 'Dog.php';
+require 'Sparrow.php';
+require 'Rat.php';
+require 'Zoo.php';
 
-class Animal
-{
-    public $name;
+use Cat\Cat;
+use Dog\Dog;
+use Sparrow\Sparrow;
+use Rat\Rat;
+use Zoo\Zoo;
 
-    public function __construct($name)
-    {
-        $this->name = $name;
+$cat = new Cat('cat');
+$cat->setMove('walk');
+
+$dog = new Dog('dog');
+$dog->setMove('run');
+$dog->setBite('man');
+
+$sparrow = new Sparrow('sparrow');
+$sparrow->setMove('fly');
+
+$rat = new Rat('rat');
+$rat->setMove('run');
+
+
+$zoo = new Zoo();
+$zoo->addAnimal($cat)
+    ->addAnimal($dog)
+    ->addAnimal($sparrow)
+    ->addAnimal($rat)
+;
+
+foreach($zoo->getAnimals() as $animal){
+    echo $animal->getSays().'<br>';
+    echo $animal->getMove().'<br>';
+    echo $animal->getEat().'<br>';
+
+    if(get_class($animal) == 'Dog'){
+        echo $animal->getBite().'<br>';
     }
-
-    public function walk()
-    {
-        if($this->name == 'dog' || $this->name == 'cat' || $this->name == 'rat')
-            echo $this->name . ' walking';
-    }
-
-    public function meow()
-    {
-        echo $this->name . ' meow';
-    }
-
-    public function run()
-    {
-        echo $this->name . ' run';
-    }
-
-    public function wuf()
-    {
-        echo $this->name . ' wuf';
-    }
-
-    public function byte($object)
-    {
-        echo $this->name . ' has bitten' . $object;
-    }
-
-    public function fly()
-    {
-        echo $this->name . ' fly';
-    }
-
-    public function pi()
-    {
-        echo $this->name . ' pi';
-    }
-}
-
-$animals = [
-    new Animal('cat'), new Animal('dog'), new Animal('sparrow'), new Animal('rat')
-];
-
-foreach($animals as $animal) {
-    switch($animal->name)
-    {
-        case 'cat':
-            $animal->walk();
-            $animal->meow();
-            break;
-        case 'dog':
-            $animal->walk();
-            $animal->run();
-            $animal->wuf();
-            $animal->byte('man');
-            break;
-        case 'sparrow':
-            $animal->walk();
-            $animal->tweet();
-            $animal->fly();
-            break;
-        case 'rat':
-            $animal->pi();
-            break;
-    }
-    $animal->eat('food');
 }
