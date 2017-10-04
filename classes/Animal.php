@@ -6,10 +6,13 @@
  * Time: 16:31
  */
 declare(strict_types=1);
-namespace Animal;
+namespace classes\Animal;
 
+require 'interfaces/iAnimal.php';
 
-class Animal
+use interfaces\iAnimal\iAnimal;
+
+abstract class Animal implements iAnimal
 {
     /** @var  string */
     private $name = '';

@@ -6,9 +6,9 @@
  * Time: 16:34
  */
 declare(strict_types=1);
-namespace Cat;
+namespace classes\Cat;
 
-use Animal\Animal;
+use classes\Animal\Animal;
 
 class Cat extends Animal
 {

@@ -6,14 +6,15 @@
  * Time: 16:41
  */
 declare(strict_types=1);
-namespace Zoo;
+namespace classes\Zoo;
 
-use Animal\Animal;
+use classes\Animal\Animal;
 
 class Zoo
 {
     /** @var array */
     private $animals = [];
+
     /**
      * Add animals to collection
      *
@@ -26,6 +27,7 @@ class Zoo
         {
             $this->animals[] = $animal;
         }
+
         return $this;
     }
 

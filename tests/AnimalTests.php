@@ -7,17 +7,23 @@
  */
 declare(strict_types=1);
 
-require 'Animal.php';
-require 'Cat.php';
-require 'Dog.php';
-require 'Sparrow.php';
-require 'Rat.php';
+require 'classes/Animal.php';
+require 'classes/Cat.php';
+require 'classes/Dog.php';
+require 'classes/Sparrow.php';
+require 'classes/Rat.php';
+require 'classes/Penguin.php';
+require 'classes/Whale.php';
+require 'classes/Unicorn.php';
 
 use PHPUnit\Framework\TestCase;
-use Cat\Cat;
-use Dog\Dog;
-use Sparrow\Sparrow;
-use Rat\Rat;
+use classes\Cat\Cat;
+use classes\Dog\Dog;
+use classes\Sparrow\Sparrow;
+use classes\Rat\Rat;
+use classes\Penguin\Penguin;
+use classes\Whale\Whale;
+use classes\Unicorn\Unicorn;
 
 
 final class AnimalTests extends TestCase
@@ -91,6 +97,48 @@ final class AnimalTests extends TestCase
         $this->assertEquals(
             $name,
             $rat->getName()
+        );
+    }
+
+    public function testCreatePenguin()
+    {
+        $name = 'penguin';
+        $penguin = new Penguin($name);
+        $penguin->setMove('walk');
+        $penguin->setEat('fish');
+
+        $this->assertEquals(
+            $name,
+            $penguin->getName(),
+            $penguin->getSwim()
+        );
+    }
+
+    public function testCreateWhale()
+    {
+        $name = 'whale';
+        $whale = new Whale($name);
+        $whale->setMove('swim');
+        $whale->setEat('plankton');
+
+        $this->assertEquals(
+            $name,
+            $whale->getName(),
+            $whale->getSwim()
+        );
+    }
+
+    public function testCreateUnicorn()
+    {
+        $name = 'unicorn';
+        $unicorn = new Unicorn($name);
+        $unicorn->setMove('run');
+        $unicorn->setEat('grass');
+
+        $this->assertEquals(
+            $name,
+            $unicorn->getName(),
+            $unicorn->getMystic()
         );
     }
 }

@@ -3,24 +3,24 @@
  * Created by PhpStorm.
  * User: Arhey
  * Date: 30.09.2017
- * Time: 16:39
+ * Time: 16:40
  */
 declare(strict_types=1);
-namespace Sparrow;
+namespace classes\Rat;
 
-use Animal\Animal;
+use classes\Animal\Animal;
 
-class Sparrow extends Animal
+class Rat extends Animal
 {
     /**
-     * Create our sparrow =)
+     * Create our rat =)
      *
      * @param string $name
      */
     public function __construct(string $name)
     {
         $this->setName($name);
-        $this->setSays('tweet');
-        $this->setEat('corn');
+        $this->setSays('pi');
+        $this->setEat('grain');
     }
 }
